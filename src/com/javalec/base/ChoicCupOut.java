@@ -11,7 +11,7 @@ import java.awt.event.MouseEvent;
 public class ChoicCupOut extends JDialog {
 	private JLabel lblTumbler;
 	private JLabel lblCup;
-
+//zzz
 	/**
 	 * Launch the application.
 	 */
