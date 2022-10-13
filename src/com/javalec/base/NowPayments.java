@@ -176,6 +176,7 @@ public class NowPayments extends JDialog {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					lblCount.setText(Integer.toString(Integer.parseInt(lblCount.getText())+1));
+					changeTotalPrice();
 				}
 			});
 			lblPlus.setBounds(312, 145, 34, 37);
@@ -190,6 +191,7 @@ public class NowPayments extends JDialog {
 				public void mouseClicked(MouseEvent e) {
 					while(Integer.parseInt(lblCount.getText()) > 1) {
 					lblCount.setText(Integer.toString(Integer.parseInt(lblCount.getText())-1));
+					changeTotalPrice();
 					}
 				}
 			});
@@ -218,4 +220,9 @@ public class NowPayments extends JDialog {
 		file.delete();
 
 	}
+	
+	private void changeTotalPrice() {
+		lblTotalPrice.setText("총 " + Integer.parseInt(lblPrice.getText())*Integer.parseInt(lblCount.getText()) + "원");
+	}
+	
 } // End
