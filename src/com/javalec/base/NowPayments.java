@@ -82,8 +82,8 @@ public class NowPayments extends JDialog {
 			lblNewLabel.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					PaymentsCard paymentsCard=new PaymentsCard();
-					paymentsCard.setVisible(true);
+					PointPage point = new PointPage();
+					point.setVisible(true);
 					setVisible(false);
 				}
 			});

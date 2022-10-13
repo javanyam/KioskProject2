@@ -18,7 +18,7 @@ import javax.swing.JTextField;
 public class PointPage extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
+	private JTextField tfTelno;
 
 	/**
 	 * Launch the application.
@@ -44,30 +44,34 @@ public class PointPage extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			JLabel lblNewLabel = new JLabel("");
-			lblNewLabel.addMouseListener(new MouseAdapter() {
+			JLabel lblSavePoint = new JLabel("");
+			lblSavePoint.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					ReceiptPage receiptpage=new ReceiptPage();
-					receiptpage.setVisible(true);
+					PaymentsCard card = new PaymentsCard();
+					card.setVisible(true);
+					setVisible(false);
+					
+				
+				}
+			});
+			lblSavePoint.setIcon(new ImageIcon(PointPage.class.getResource("/image/btnSaveYes.png")));
+			lblSavePoint.setBounds(207, 444, 165, 56);
+			contentPanel.add(lblSavePoint);
+		}
+		{
+			JLabel lblDont = new JLabel("");
+			lblDont.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					PaymentsCard card = new PaymentsCard();
+					card.setVisible(true);
 					setVisible(false);
 				}
 			});
-			lblNewLabel.setIcon(new ImageIcon(PointPage.class.getResource("/image/btnReceipt.png")));
-			lblNewLabel.setBounds(12, 445, 360, 56);
-			contentPanel.add(lblNewLabel);
-		}
-		{
-			JLabel lblNewLabel_1 = new JLabel("");
-			lblNewLabel_1.setIcon(new ImageIcon(PointPage.class.getResource("/image/btnSaveYes.png")));
-			lblNewLabel_1.setBounds(207, 379, 165, 56);
-			contentPanel.add(lblNewLabel_1);
-		}
-		{
-			JLabel lblNewLabel_1 = new JLabel("");
-			lblNewLabel_1.setIcon(new ImageIcon(PointPage.class.getResource("/image/btnSaveNo.png")));
-			lblNewLabel_1.setBounds(12, 379, 165, 56);
-			contentPanel.add(lblNewLabel_1);
+			lblDont.setIcon(new ImageIcon(PointPage.class.getResource("/image/btnSaveNo.png")));
+			lblDont.setBounds(12, 444, 165, 56);
+			contentPanel.add(lblDont);
 		}
 		{
 			JLabel lblNewLabel_1 = new JLabel("");
@@ -88,14 +92,14 @@ public class PointPage extends JDialog {
 			lblNewLabel_2.setBounds(-29, 309, 165, 62);
 			contentPanel.add(lblNewLabel_2);
 		}
-		contentPanel.add(getTextField());
+		contentPanel.add(getTfTelno());
 	}
-	private JTextField getTextField() {
-		if (textField == null) {
-			textField = new JTextField();
-			textField.setBounds(106, 319, 266, 36);
-			textField.setColumns(10);
+	private JTextField getTfTelno() {
+		if (tfTelno == null) {
+			tfTelno = new JTextField();
+			tfTelno.setBounds(106, 319, 266, 36);
+			tfTelno.setColumns(10);
 		}
-		return textField;
+		return tfTelno;
 	}
 }
