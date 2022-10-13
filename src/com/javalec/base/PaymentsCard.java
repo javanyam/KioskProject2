@@ -8,9 +8,14 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class PaymentsCard extends JDialog {
 
@@ -19,7 +24,10 @@ public class PaymentsCard extends JDialog {
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2_3;
 	private JLabel lblNewLabel_2;
+	private JLabel lblTest;
 
+	int count = 0;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -44,9 +52,34 @@ public class PaymentsCard extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		contentPanel.add(getLblNewLabel());
-		contentPanel.add(getLblNewLabel_1());
 		contentPanel.add(getLblNewLabel_2_3());
+		contentPanel.add(getLblTest());
 		contentPanel.add(getLblNewLabel_2());
+		contentPanel.add(getLblNewLabel_1());
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowOpened(WindowEvent e) {
+				Timer timer = new Timer();
+				TimerTask task = new TimerTask() {
+					
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+						
+						count++;
+						if(count == 5) {
+							setVisible(false);
+							JOptionPane.showMessageDialog(null, "결제가 완료되었습니다. 감사합니다.");
+							KioskMain kiosk = new KioskMain();
+							kiosk.setVisible(true);
+						}
+						
+					}
+				};
+				timer.schedule(task, 0, 1000);
+			}
+		});
 	}
 	private JLabel getLblNewLabel() {
 		if (lblNewLabel == null) {
@@ -85,5 +118,12 @@ public class PaymentsCard extends JDialog {
 			lblNewLabel_2.setBounds(22, 0, 344, 113);
 		}
 		return lblNewLabel_2;
+	}
+	private JLabel getLblTest() {
+		if (lblTest == null) {
+			lblTest = new JLabel("");
+			lblTest.setBounds(366, 127, 29, 16);
+		}
+		return lblTest;
 	}
 }
