@@ -22,14 +22,14 @@ public class NowPayments extends JDialog {
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2_1;
 	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
+	private JLabel lblImage;
 	private JLabel lblNewLabel_4;
-	private JLabel lblQuentuty;
+	private JLabel lblCount;
 	private JLabel lblNewLabel_5;
-	private JLabel lblNewLabel_8_1;
-	private JLabel lblNewLabel_9_1;
-	private JLabel lblP;
-	private JLabel lblM;
+	private JLabel lblName;
+	private JLabel lblPrice;
+	private JLabel lblPlus;
+	private JLabel lblMinus;
 
 	/**
 	 * Launch the application.
@@ -58,14 +58,16 @@ public class NowPayments extends JDialog {
 		contentPanel.add(getLblNewLabel_1());
 		contentPanel.add(getLblNewLabel_2_1());
 		contentPanel.add(getLblNewLabel_2());
-		contentPanel.add(getLblNewLabel_3());
+		contentPanel.add(getLblImage());
 		contentPanel.add(getLblNewLabel_4());
-		contentPanel.add(getLblQuentuty());
+		contentPanel.add(getLblCount());
+		contentPanel.add(getLblName());
+		contentPanel.add(getLblPrice());
+		contentPanel.add(getLblPlus());
+		contentPanel.add(getLblMinus());
 		contentPanel.add(getLblNewLabel_5());
-		contentPanel.add(getLblNewLabel_8_1());
-		contentPanel.add(getLblNewLabel_9_1());
-		contentPanel.add(getLblP());
-		contentPanel.add(getLblM());
+		
+		selectInfo();
 	}
 	private JLabel getLblNewLabel() {
 		if (lblNewLabel == null) {
@@ -108,13 +110,13 @@ public class NowPayments extends JDialog {
 		}
 		return lblNewLabel_2;
 	}
-	private JLabel getLblNewLabel_3() {
-		if (lblNewLabel_3 == null) {
-			lblNewLabel_3 = new JLabel("");
-			lblNewLabel_3.setIcon(new ImageIcon(NowPayments.class.getResource("/image/coffee-1 big.png")));
-			lblNewLabel_3.setBounds(12, 47, 179, 179);
+	private JLabel getLblImage() {
+		if (lblImage == null) {
+			lblImage = new JLabel("");
+			lblImage.setIcon(new ImageIcon(NowPayments.class.getResource("/image/coffee-1 big.png")));
+			lblImage.setBounds(12, 47, 179, 179);
 		}
-		return lblNewLabel_3;
+		return lblImage;
 	}
 	private JLabel getLblNewLabel_4() {
 		if (lblNewLabel_4 == null) {
@@ -127,14 +129,14 @@ public class NowPayments extends JDialog {
 		}
 		return lblNewLabel_4;
 	}
-	private JLabel getLblQuentuty() {
-		if (lblQuentuty == null) {
-			lblQuentuty = new JLabel("2");
-			lblQuentuty.setHorizontalAlignment(SwingConstants.CENTER);
-			lblQuentuty.setFont(new Font("굴림", Font.PLAIN, 16));
-			lblQuentuty.setBounds(256, 153, 57, 15);
+	private JLabel getLblCount() {
+		if (lblCount == null) {
+			lblCount = new JLabel("1");
+			lblCount.setHorizontalAlignment(SwingConstants.CENTER);
+			lblCount.setFont(new Font("굴림", Font.PLAIN, 16));
+			lblCount.setBounds(256, 153, 57, 15);
 		}
-		return lblQuentuty;
+		return lblCount;
 	}
 	private JLabel getLblNewLabel_5() {
 		if (lblNewLabel_5 == null) {
@@ -144,38 +146,54 @@ public class NowPayments extends JDialog {
 		}
 		return lblNewLabel_5;
 	}
-	private JLabel getLblNewLabel_8_1() {
-		if (lblNewLabel_8_1 == null) {
-			lblNewLabel_8_1 = new JLabel("에소프레소");
-			lblNewLabel_8_1.setHorizontalAlignment(SwingConstants.CENTER);
-			lblNewLabel_8_1.setFont(new Font("굴림", Font.BOLD, 25));
-			lblNewLabel_8_1.setBounds(223, 41, 140, 24);
+	private JLabel getLblName() {
+		if (lblName == null) {
+			lblName = new JLabel("에소프레소");
+			lblName.setHorizontalAlignment(SwingConstants.CENTER);
+			lblName.setFont(new Font("굴림", Font.BOLD, 25));
+			lblName.setBounds(223, 41, 140, 24);
 		}
-		return lblNewLabel_8_1;
+		return lblName;
 	}
-	private JLabel getLblNewLabel_9_1() {
-		if (lblNewLabel_9_1 == null) {
-			lblNewLabel_9_1 = new JLabel("4000원");
-			lblNewLabel_9_1.setHorizontalAlignment(SwingConstants.CENTER);
-			lblNewLabel_9_1.setFont(new Font("굴림", Font.PLAIN, 20));
-			lblNewLabel_9_1.setBounds(248, 75, 83, 25);
+	private JLabel getLblPrice() {
+		if (lblPrice == null) {
+			lblPrice = new JLabel("4000원");
+			lblPrice.setHorizontalAlignment(SwingConstants.CENTER);
+			lblPrice.setFont(new Font("굴림", Font.PLAIN, 20));
+			lblPrice.setBounds(248, 75, 83, 25);
 		}
-		return lblNewLabel_9_1;
+		return lblPrice;
 	}
-	private JLabel getLblP() {
-		if (lblP == null) {
-			lblP = new JLabel("");
-			lblP.setBounds(312, 145, 34, 37);
-		}
-		return lblP;
-	}
-	private JLabel getLblM() {
-		if (lblM == null) {
-			lblM = new JLabel("");
-			lblM.addMouseListener(new MouseAdapter() {
+	private JLabel getLblPlus() {
+		if (lblPlus == null) {
+			lblPlus = new JLabel("");
+			lblPlus.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					lblCount.setText(Integer.toString(Integer.parseInt(lblCount.getText())+1));
+				}
 			});
-			lblM.setBounds(224, 145, 34, 37);
+			lblPlus.setBounds(312, 145, 34, 37);
 		}
-		return lblM;
+		return lblPlus;
 	}
-}
+	private JLabel getLblMinus() {
+		if (lblMinus == null) {
+			lblMinus = new JLabel("");
+			lblMinus.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					lblCount.setText(Integer.toString(Integer.parseInt(lblCount.getText())-1));
+				}
+			});
+			lblMinus.setBounds(224, 145, 34, 37);
+		}
+		return lblMinus;
+	}
+	
+	// M
+	
+	private void selectInfo() {
+		
+	}
+} // End
