@@ -77,6 +77,11 @@ public class MenuTouch extends JDialog {
 	ArrayList<String> menuid = new ArrayList<String>();
 	
 	JLabel[] menuLabel = {new JLabel("1"),new JLabel("2"),new JLabel("3"),new JLabel("4"),new JLabel("5"),new JLabel("6"),new JLabel("7"),new JLabel("8"),new JLabel("9") };
+	private JLabel lblMenu0_1;
+	private JLabel lblMenu0_2;
+	private JLabel lblMenu0_3;
+	private JLabel lblMenu0_4;
+	private JLabel lblMenu0_4_1;
 	
 //	ArrayList<JLabel> label = new ArrayList<JLabel>();
 	
@@ -107,7 +112,6 @@ public class MenuTouch extends JDialog {
 		contentPanel.setLayout(null);
 		contentPanel.add(getLblNewLabel_2());
 		contentPanel.add(getLblAllDel());
-		contentPanel.add(getLblNewLabel_3());
 		contentPanel.add(getLblNewLabel_5());
 		contentPanel.add(getLblNewLabel_6());
 		contentPanel.add(getLblTotalPrice());
@@ -149,6 +153,12 @@ public class MenuTouch extends JDialog {
 		contentPanel.add(getLblDecaffeinated());
 		contentPanel.add(getLblNewLabel_1());
 		contentPanel.add(getLblCoffee_1());
+		contentPanel.add(getLblMenu0_1());
+		contentPanel.add(getLblMenu0_2());
+		contentPanel.add(getLblMenu0_3());
+		contentPanel.add(getLblMenu0_4());
+		contentPanel.add(getLblNewLabel_3());
+		contentPanel.add(getLblMenu0_4_1());
 //		bringMenuname();
 		insertImage();
 	}
@@ -654,19 +664,39 @@ public class MenuTouch extends JDialog {
 			}
 		}
 	}
-	
-//	private void bingMenuid() {
-//		for(int i = 0; i < menuid.size(); i++) {
-//			menuLabel[i].setText(getName());
-//		}
-//	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	private JLabel getLblMenu0_1() {
+		if (lblMenu0_1 == null) {
+			lblMenu0_1 = new JLabel("");
+			lblMenu0_1.setBounds(319, 169, 89, 89);
+		}
+		return lblMenu0_1;
+	}
+	private JLabel getLblMenu0_2() {
+		if (lblMenu0_2 == null) {
+			lblMenu0_2 = new JLabel("");
+			lblMenu0_2.setBounds(318, 279, 89, 89);
+		}
+		return lblMenu0_2;
+	}
+	private JLabel getLblMenu0_3() {
+		if (lblMenu0_3 == null) {
+			lblMenu0_3 = new JLabel("");
+			lblMenu0_3.setBounds(318, 386, 89, 89);
+		}
+		return lblMenu0_3;
+	}
+	private JLabel getLblMenu0_4() {
+		if (lblMenu0_4 == null) {
+			lblMenu0_4 = new JLabel("");
+			lblMenu0_4.setBounds(319, 493, 89, 89);
+		}
+		return lblMenu0_4;
+	}
+	private JLabel getLblMenu0_4_1() {
+		if (lblMenu0_4_1 == null) {
+			lblMenu0_4_1 = new JLabel("");
+			lblMenu0_4_1.setBounds(319, 609, 89, 89);
+		}
+		return lblMenu0_4_1;
+	}
 } // End

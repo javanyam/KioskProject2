@@ -35,7 +35,6 @@ public class DaoMenu {
 		public ArrayList<String> selectMenu() {
 			
 			ArrayList<String> menuId = new ArrayList<String>();
-			System.out.println("----start----");
 			String query = "select menuid from menu ";
 			
 			try {
