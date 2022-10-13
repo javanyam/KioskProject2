@@ -37,9 +37,6 @@ public class NowPayments extends JDialog {
 	private JLabel lblPlus;
 	private JLabel lblMinus;
 	
-	DaoMenu dao = new DaoMenu();
-	DtoMenu dto = null;
-
 	/**
 	 * Launch the application.
 	 */
@@ -112,7 +109,7 @@ public class NowPayments extends JDialog {
 	}
 	private JLabel getLblTotalPrice() {
 		if (lblTotalPrice == null) {
-			lblTotalPrice = new JLabel("총 " + Integer.toString(Integer.parseInt(lblCount.getText())*dto.getMenuprice()));
+			lblTotalPrice = new JLabel("");
 			lblTotalPrice.setHorizontalAlignment(SwingConstants.CENTER);
 			lblTotalPrice.setFont(new Font("굴림", Font.BOLD, 36));
 			lblTotalPrice.setBounds(48, 265, 295, 62);
@@ -156,7 +153,7 @@ public class NowPayments extends JDialog {
 	}
 	private JLabel getLblName() {
 		if (lblName == null) {
-			lblName = new JLabel(dto.getMenuname());
+			lblName = new JLabel("");
 			lblName.setHorizontalAlignment(SwingConstants.CENTER);
 			lblName.setFont(new Font("굴림", Font.BOLD, 25));
 			lblName.setBounds(223, 41, 140, 24);
@@ -165,7 +162,7 @@ public class NowPayments extends JDialog {
 	}
 	private JLabel getLblPrice() {
 		if (lblPrice == null) {
-			lblPrice = new JLabel(Integer.toString(dto.getMenuprice()));
+			lblPrice = new JLabel("");
 			lblPrice.setHorizontalAlignment(SwingConstants.CENTER);
 			lblPrice.setFont(new Font("굴림", Font.PLAIN, 20));
 			lblPrice.setBounds(248, 75, 83, 25);
@@ -202,15 +199,21 @@ public class NowPayments extends JDialog {
 	// M
 	
 	private void selectInfo() {
-		dto = dao.selectMenuInfo();
+		DaoMenu dao = new DaoMenu();
+		DtoMenu dto = dao.selectMenuInfo();
 		
 		String filePath = Integer.toString(DBConnect.filename);
 		
+		lblName.setText(dto.getMenuname());
+		lblPrice.setText(Integer.toString(dto.getMenuprice()));
 		
 		lblImage.setIcon(new ImageIcon(filePath));
 		lblImage.setHorizontalAlignment(SwingConstants.CENTER);
 		
+		lblTotalPrice.setText(Integer.toString(dto.getMenuprice()*Integer.parseInt(lblCount.getText())));
+		
 		File file = new File(filePath);
 		file.delete();
+	
 	}
 } // End
