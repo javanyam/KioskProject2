@@ -14,6 +14,7 @@ import com.javalec.dto.DtoMenu;
 import com.javalec.util.DBConnect;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -128,6 +129,10 @@ public class NowPayments extends JDialog {
 			lblNewLabel_4 = new JLabel("");
 			lblNewLabel_4.addMouseListener(new MouseAdapter() {
 				
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					insertCartAction();
+				}
 			});
 			lblNewLabel_4.setIcon(new ImageIcon(NowPayments.class.getResource("/image/btnPutIn.png")));
 			lblNewLabel_4.setBounds(203, 192, 165, 56);
@@ -224,5 +229,67 @@ public class NowPayments extends JDialog {
 	private void changeTotalPrice() {
 		lblTotalPrice.setText("총 " + Integer.parseInt(lblPrice.getText())*Integer.parseInt(lblCount.getText()) + "원");
 	}
+	
+	
+	private void insertCartAction( ) {
+	
+		DaoMenu dao = new DaoMenu();
+		DtoMenu dto = dao.selectMenuInfo();
+		
+		String filePath = Integer.toString(DBConnect.filename);
+		
+		
+		
+		if(MenuTouch.lblCartName0.getText().length()==0) {
+			MenuTouch.lblCart0.setIcon(new ImageIcon(filePath));
+			MenuTouch.lblCartName0.setText(dto.getMenuname());
+			MenuTouch.lblCartPrice0.setText(Integer.toString(dto.getMenuprice())+"원");
+			MenuTouch.a.add(dto.getMenuname());
+			
+			
+		}else if(MenuTouch.lblCartName1.getText().length()==0){
+			MenuTouch.lblCart1.setIcon(new ImageIcon(filePath));
+			MenuTouch.lblCartName1.setText(dto.getMenuname());
+			MenuTouch.lblCartPrice1.setText(Integer.toString(dto.getMenuprice())+"원");
+			MenuTouch.a.add(dto.getMenuname());
+			
+		}else if(MenuTouch.lblCartName2.getText().equals("")) {
+			MenuTouch.lblCart2.setIcon(new ImageIcon(filePath));
+			MenuTouch.lblCartName2.setText(dto.getMenuname());
+			MenuTouch.lblCartPrice2.setText(Integer.toString(dto.getMenuprice())+"원");
+			MenuTouch.a.add(dto.getMenuname());
+			
+		}else if(!MenuTouch.lblCartName2.getText().equals("")) {
+			
+			JOptionPane.showMessageDialog(null, "장바구니에는 3개까지만 담을 수 있습니다.");
+			
+		}
+		
+		MenuTouch menuTouch = new MenuTouch();
+		File file = new File(filePath);
+		file.delete();
+		
+		menuTouch.setVisible(true);
+		System.out.println(MenuTouch.a);
+	}
+		
+		
+		//------------------------
+		
+		
+		
+		
+		
+//		lblName.setText(dto.getMenuname());
+//		lblPrice.setText(Integer.toString(dto.getMenuprice()));
+//		
+//		lblImage.setIcon(new ImageIcon(filePath));
+//		lblImage.setHorizontalAlignment(SwingConstants.CENTER);
+//		
+//		lblTotalPrice.setText("총 " + dto.getMenuprice() + "원");
+//		
+//		File file = new File(filePath);
+//		file.delete();
+		
 	
 } // End

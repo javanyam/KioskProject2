@@ -30,7 +30,6 @@ public class MenuTouch extends JDialog {
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
 	private JLabel lblAllDel;
-	private JLabel lblNewLabel_3;
 	private JLabel lblNewLabel_5;
 	private JLabel lblNewLabel_6;
 	private JLabel lblTotalPrice;
@@ -77,11 +76,16 @@ public class MenuTouch extends JDialog {
 	ArrayList<String> menuid = new ArrayList<String>();
 	
 	JLabel[] menuLabel = {new JLabel("1"),new JLabel("2"),new JLabel("3"),new JLabel("4"),new JLabel("5"),new JLabel("6"),new JLabel("7"),new JLabel("8"),new JLabel("9") };
-	private JLabel lblMenu0_1;
-	private JLabel lblMenu0_2;
-	private JLabel lblMenu0_3;
-	private JLabel lblMenu0_4;
-	private JLabel lblMenu0_4_1;
+	public static JLabel lblCart0;
+	public static JLabel lblCart1;
+	public static JLabel lblCart2;
+	public static JLabel lblCartPrice0;
+	public static JLabel lblCartPrice1;
+	public static JLabel lblCartPrice2;
+	public static JLabel lblCartName0;
+	public static JLabel lblCartName1;
+	public static JLabel lblCartName2;
+	public static ArrayList<String> a = new ArrayList<String>();
 	
 //	ArrayList<JLabel> label = new ArrayList<JLabel>();
 	
@@ -153,12 +157,15 @@ public class MenuTouch extends JDialog {
 		contentPanel.add(getLblDecaffeinated());
 		contentPanel.add(getLblNewLabel_1());
 		contentPanel.add(getLblCoffee_1());
-		contentPanel.add(getLblMenu0_1());
-		contentPanel.add(getLblMenu0_2());
-		contentPanel.add(getLblMenu0_3());
-		contentPanel.add(getLblMenu0_4());
-		contentPanel.add(getLblNewLabel_3());
-		contentPanel.add(getLblMenu0_4_1());
+		contentPanel.add(getLblCart0());
+		contentPanel.add(getLblCart1());
+		contentPanel.add(getLblCart2());
+		contentPanel.add(getLblCartName0());
+		contentPanel.add(getLblCartPrice0());
+		contentPanel.add(getLblCartPrice1());
+		contentPanel.add(getLblCartName1());
+		contentPanel.add(getLblCartPrice2());
+		contentPanel.add(getLblCartName2());
 //		bringMenuname();
 		insertImage();
 	}
@@ -185,14 +192,6 @@ public class MenuTouch extends JDialog {
 			lblAllDel.setBounds(334, 710, 60, 15);
 		}
 		return lblAllDel;
-	}
-	private JLabel getLblNewLabel_3() {
-		if (lblNewLabel_3 == null) {
-			lblNewLabel_3 = new JLabel("");
-			lblNewLabel_3.setIcon(new ImageIcon(MenuTouch.class.getResource("/image/MenuSideBarGrey.png")));
-			lblNewLabel_3.setBounds(306, 154, 115, 581);
-		}
-		return lblNewLabel_3;
 	}
 	private JLabel getLblNewLabel_5() {
 		if (lblNewLabel_5 == null) {
@@ -729,39 +728,67 @@ public class MenuTouch extends JDialog {
 			}
 		}
 	}
-	private JLabel getLblMenu0_1() {
-		if (lblMenu0_1 == null) {
-			lblMenu0_1 = new JLabel("");
-			lblMenu0_1.setBounds(319, 169, 89, 89);
+	private JLabel getLblCart0() {
+		if (lblCart0 == null) {
+			lblCart0 = new JLabel("");
+			lblCart0.setBounds(319, 169, 89, 89);
 		}
-		return lblMenu0_1;
+		return lblCart0;
 	}
-	private JLabel getLblMenu0_2() {
-		if (lblMenu0_2 == null) {
-			lblMenu0_2 = new JLabel("");
-			lblMenu0_2.setBounds(318, 279, 89, 89);
+	private JLabel getLblCart1() {
+		if (lblCart1 == null) {
+			lblCart1 = new JLabel("");
+			lblCart1.setBounds(319, 313, 89, 89);
 		}
-		return lblMenu0_2;
+		return lblCart1;
 	}
-	private JLabel getLblMenu0_3() {
-		if (lblMenu0_3 == null) {
-			lblMenu0_3 = new JLabel("");
-			lblMenu0_3.setBounds(318, 386, 89, 89);
+	private JLabel getLblCart2() {
+		if (lblCart2 == null) {
+			lblCart2 = new JLabel("");
+			lblCart2.setBounds(320, 463, 89, 89);
 		}
-		return lblMenu0_3;
+		return lblCart2;
 	}
-	private JLabel getLblMenu0_4() {
-		if (lblMenu0_4 == null) {
-			lblMenu0_4 = new JLabel("");
-			lblMenu0_4.setBounds(319, 493, 89, 89);
+	private JLabel getLblCartName0() {
+		if (lblCartName0 == null) {
+			lblCartName0 = new JLabel("");
+			lblCartName0.setBounds(334, 265, 61, 16);
 		}
-		return lblMenu0_4;
+		return lblCartName0;
 	}
-	private JLabel getLblMenu0_4_1() {
-		if (lblMenu0_4_1 == null) {
-			lblMenu0_4_1 = new JLabel("");
-			lblMenu0_4_1.setBounds(319, 609, 89, 89);
+	private JLabel getLblCartPrice0() {
+		if (lblCartPrice0 == null) {
+			lblCartPrice0 = new JLabel("");
+			lblCartPrice0.setBounds(334, 285, 61, 16);
 		}
-		return lblMenu0_4_1;
+		return lblCartPrice0;
+	}
+	private JLabel getLblCartPrice1() {
+		if (lblCartPrice1 == null) {
+			lblCartPrice1 = new JLabel("");
+			lblCartPrice1.setBounds(333, 435, 61, 16);
+		}
+		return lblCartPrice1;
+	}
+	private JLabel getLblCartName1() {
+		if (lblCartName1 == null) {
+			lblCartName1 = new JLabel("");
+			lblCartName1.setBounds(333, 415, 61, 16);
+		}
+		return lblCartName1;
+	}
+	private JLabel getLblCartPrice2() {
+		if (lblCartPrice2 == null) {
+			lblCartPrice2 = new JLabel("");
+			lblCartPrice2.setBounds(333, 581, 61, 16);
+		}
+		return lblCartPrice2;
+	}
+	private JLabel getLblCartName2() {
+		if (lblCartName2 == null) {
+			lblCartName2 = new JLabel("");
+			lblCartName2.setBounds(333, 561, 61, 16);
+		}
+		return lblCartName2;
 	}
 } // End
