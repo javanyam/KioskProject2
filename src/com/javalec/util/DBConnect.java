@@ -5,7 +5,7 @@ public class DBConnect {
 		// 연결프로그램 jdbc: 내가사용할프로그램 mysql ://데이터베이스(서버)번호//3306포트 // 데이터베이스이름 //옵션자는 ?을씀 //캐릭터 uft8이다 
 		//데이터베이스 타입 utf8 내 자바 utf파일로 연결도 utf로 그래야 안꺠지고 잘 왔다갔다거림 //서버타임존 시간 // 인코딩 유티에프8 도안 //
 		public static final String url_mysql = "jdbc:mysql://127.0.0.1:3306/coffeeshop?severTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=FALSE";
-		public static final String id_mysql = "new";
+		public static final String id_mysql = "root";
 		public static final String pw_mysql = "qwer1234";
 		public static int filename = 0;
 		
