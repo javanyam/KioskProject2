@@ -233,6 +233,7 @@ public class MenuTouch extends JDialog {
 			lblMenu0.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
+					DaoMenu.selectmenuid = menuid.get(0);
 					NowPayments nowPayments=new NowPayments();
 					nowPayments.setVisible(true);
 				}
@@ -244,6 +245,14 @@ public class MenuTouch extends JDialog {
 	private JLabel getLblMenu1() {
 		if (lblMenu1 == null) {
 			lblMenu1 = new JLabel("");
+			lblMenu1.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					DaoMenu.selectmenuid = menuid.get(1);
+					NowPayments nowPayments=new NowPayments();
+					nowPayments.setVisible(true);
+				}
+			});
 			lblMenu1.setBounds(109, 265, 89, 89);
 		}
 		return lblMenu1;
@@ -251,6 +260,14 @@ public class MenuTouch extends JDialog {
 	private JLabel getLblMenu2() {
 		if (lblMenu2 == null) {
 			lblMenu2 = new JLabel("");
+			lblMenu2.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					DaoMenu.selectmenuid = menuid.get(2);
+					NowPayments nowPayments=new NowPayments();
+					nowPayments.setVisible(true);
+				}
+			});
 			lblMenu2.setBounds(205, 265, 89, 89);
 		}
 		return lblMenu2;
@@ -258,6 +275,14 @@ public class MenuTouch extends JDialog {
 	private JLabel getLblMenu3() {
 		if (lblMenu3 == null) {
 			lblMenu3 = new JLabel("");
+			lblMenu3.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					DaoMenu.selectmenuid = menuid.get(3);
+					NowPayments nowPayments=new NowPayments();
+					nowPayments.setVisible(true);
+				}
+			});
 			lblMenu3.setBounds(12, 431, 89, 89);
 		}
 		return lblMenu3;
@@ -265,6 +290,14 @@ public class MenuTouch extends JDialog {
 	private JLabel getLblMenu4() {
 		if (lblMenu4 == null) {
 			lblMenu4 = new JLabel("");
+			lblMenu4.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					DaoMenu.selectmenuid = menuid.get(4);
+					NowPayments nowPayments=new NowPayments();
+					nowPayments.setVisible(true);
+				}
+			});
 			lblMenu4.setBounds(109, 431, 89, 89);
 		}
 		return lblMenu4;
@@ -272,6 +305,14 @@ public class MenuTouch extends JDialog {
 	private JLabel getLblMenu5() {
 		if (lblMenu5 == null) {
 			lblMenu5 = new JLabel("");
+			lblMenu5.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					DaoMenu.selectmenuid = menuid.get(5);
+					NowPayments nowPayments=new NowPayments();
+					nowPayments.setVisible(true);
+				}
+			});
 			lblMenu5.setBounds(205, 431, 89, 89);
 		}
 		return lblMenu5;
@@ -279,6 +320,14 @@ public class MenuTouch extends JDialog {
 	private JLabel getLblMenu6() {
 		if (lblMenu6 == null) {
 			lblMenu6 = new JLabel("");
+			lblMenu6.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					DaoMenu.selectmenuid = menuid.get(6);
+					NowPayments nowPayments=new NowPayments();
+					nowPayments.setVisible(true);
+				}
+			});
 			lblMenu6.setBounds(12, 590, 89, 89);
 		}
 		return lblMenu6;
@@ -286,6 +335,14 @@ public class MenuTouch extends JDialog {
 	private JLabel getLblMenu7() {
 		if (lblMenu7 == null) {
 			lblMenu7 = new JLabel("");
+			lblMenu7.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					DaoMenu.selectmenuid = menuid.get(7);
+					NowPayments nowPayments=new NowPayments();
+					nowPayments.setVisible(true);
+				}
+			});
 			lblMenu7.setBounds(109, 590, 89, 89);
 		}
 		return lblMenu7;
@@ -293,6 +350,14 @@ public class MenuTouch extends JDialog {
 	private JLabel getLblMenu8() {
 		if (lblMenu8 == null) {
 			lblMenu8 = new JLabel("");
+			lblMenu8.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					DaoMenu.selectmenuid = menuid.get(8);
+					NowPayments nowPayments=new NowPayments();
+					nowPayments.setVisible(true);
+				}
+			});
 			lblMenu8.setBounds(205, 590, 89, 89);
 		}
 		return lblMenu8;

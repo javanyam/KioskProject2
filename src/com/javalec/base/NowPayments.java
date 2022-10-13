@@ -8,12 +8,18 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.javalec.dao.DaoMenu;
+import com.javalec.dto.DtoMenu;
+import com.javalec.util.DBConnect;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 
 public class NowPayments extends JDialog {
 
@@ -21,7 +27,7 @@ public class NowPayments extends JDialog {
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2_1;
-	private JLabel lblNewLabel_2;
+	private JLabel lblTotalPrice;
 	private JLabel lblImage;
 	private JLabel lblNewLabel_4;
 	private JLabel lblCount;
@@ -30,6 +36,9 @@ public class NowPayments extends JDialog {
 	private JLabel lblPrice;
 	private JLabel lblPlus;
 	private JLabel lblMinus;
+	
+	DaoMenu dao = new DaoMenu();
+	DtoMenu dto = null;
 
 	/**
 	 * Launch the application.
@@ -57,7 +66,7 @@ public class NowPayments extends JDialog {
 		contentPanel.add(getLblNewLabel());
 		contentPanel.add(getLblNewLabel_1());
 		contentPanel.add(getLblNewLabel_2_1());
-		contentPanel.add(getLblNewLabel_2());
+		contentPanel.add(getLblTotalPrice());
 		contentPanel.add(getLblImage());
 		contentPanel.add(getLblNewLabel_4());
 		contentPanel.add(getLblCount());
@@ -101,19 +110,18 @@ public class NowPayments extends JDialog {
 		}
 		return lblNewLabel_2_1;
 	}
-	private JLabel getLblNewLabel_2() {
-		if (lblNewLabel_2 == null) {
-			lblNewLabel_2 = new JLabel("총 8,000원");
-			lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-			lblNewLabel_2.setFont(new Font("굴림", Font.BOLD, 36));
-			lblNewLabel_2.setBounds(48, 265, 295, 62);
+	private JLabel getLblTotalPrice() {
+		if (lblTotalPrice == null) {
+			lblTotalPrice = new JLabel("총 " + Integer.toString(Integer.parseInt(lblCount.getText())*dto.getMenuprice()));
+			lblTotalPrice.setHorizontalAlignment(SwingConstants.CENTER);
+			lblTotalPrice.setFont(new Font("굴림", Font.BOLD, 36));
+			lblTotalPrice.setBounds(48, 265, 295, 62);
 		}
-		return lblNewLabel_2;
+		return lblTotalPrice;
 	}
 	private JLabel getLblImage() {
 		if (lblImage == null) {
 			lblImage = new JLabel("");
-			lblImage.setIcon(new ImageIcon(NowPayments.class.getResource("/image/coffee-1 big.png")));
 			lblImage.setBounds(12, 47, 179, 179);
 		}
 		return lblImage;
@@ -148,7 +156,7 @@ public class NowPayments extends JDialog {
 	}
 	private JLabel getLblName() {
 		if (lblName == null) {
-			lblName = new JLabel("에소프레소");
+			lblName = new JLabel(dto.getMenuname());
 			lblName.setHorizontalAlignment(SwingConstants.CENTER);
 			lblName.setFont(new Font("굴림", Font.BOLD, 25));
 			lblName.setBounds(223, 41, 140, 24);
@@ -157,7 +165,7 @@ public class NowPayments extends JDialog {
 	}
 	private JLabel getLblPrice() {
 		if (lblPrice == null) {
-			lblPrice = new JLabel("4000원");
+			lblPrice = new JLabel(Integer.toString(dto.getMenuprice()));
 			lblPrice.setHorizontalAlignment(SwingConstants.CENTER);
 			lblPrice.setFont(new Font("굴림", Font.PLAIN, 20));
 			lblPrice.setBounds(248, 75, 83, 25);
@@ -194,6 +202,15 @@ public class NowPayments extends JDialog {
 	// M
 	
 	private void selectInfo() {
+		dto = dao.selectMenuInfo();
 		
+		String filePath = Integer.toString(DBConnect.filename);
+		
+		
+		lblImage.setIcon(new ImageIcon(filePath));
+		lblImage.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		File file = new File(filePath);
+		file.delete();
 	}
 } // End
