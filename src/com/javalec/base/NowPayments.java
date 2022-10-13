@@ -109,7 +109,7 @@ public class NowPayments extends JDialog {
 	}
 	private JLabel getLblTotalPrice() {
 		if (lblTotalPrice == null) {
-			lblTotalPrice = new JLabel("");
+			lblTotalPrice = new JLabel();
 			lblTotalPrice.setHorizontalAlignment(SwingConstants.CENTER);
 			lblTotalPrice.setFont(new Font("굴림", Font.BOLD, 36));
 			lblTotalPrice.setBounds(48, 265, 295, 62);
@@ -188,7 +188,9 @@ public class NowPayments extends JDialog {
 			lblMinus.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
+					while(Integer.parseInt(lblCount.getText()) > 1) {
 					lblCount.setText(Integer.toString(Integer.parseInt(lblCount.getText())-1));
+					}
 				}
 			});
 			lblMinus.setBounds(224, 145, 34, 37);
@@ -210,10 +212,10 @@ public class NowPayments extends JDialog {
 		lblImage.setIcon(new ImageIcon(filePath));
 		lblImage.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		lblTotalPrice.setText(Integer.toString(dto.getMenuprice()*Integer.parseInt(lblCount.getText())));
+		lblTotalPrice.setText("총 " + dto.getMenuprice() + "원");
 		
 		File file = new File(filePath);
 		file.delete();
-	
+
 	}
 } // End
