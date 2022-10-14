@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.javalec.dao.DaoMenu;
 import com.javalec.dto.DtoMenu;
+import com.javalec.style.Style;
 import com.javalec.util.DBConnect;
 
 import javax.swing.JLabel;
@@ -606,15 +607,15 @@ public class MenuTouch extends JDialog {
 //			File file = new File(filePath);
 //			file.delete();
 //		}
-		
-		for(int i = 0; i < 9; i++) {
+		Style style = new Style();
+			for(int i = 0; i < 9; i++) {
 			if(i == 0) {
 				DaoMenu.selectmenuid = menuid.get(i);
 				DtoMenu dto = dao.selectMenuInfo();
 				
 				String filePath = Integer.toString(DBConnect.filename);
 				
-				lblMenu0.setIcon(new ImageIcon(filePath));
+				lblMenu0.setIcon(style.imageSize89(filePath));
 				lblMenu0.setHorizontalAlignment(SwingConstants.CENTER);
 				lblName0.setText(dto.getMenuname());
 				lblPrice0.setText(Integer.toString(dto.getMenuprice()));
@@ -627,7 +628,7 @@ public class MenuTouch extends JDialog {
 				
 				String filePath = Integer.toString(DBConnect.filename);
 				
-				lblMenu1.setIcon(new ImageIcon(filePath));
+				lblMenu1.setIcon(style.imageSize89(filePath));
 				lblMenu1.setHorizontalAlignment(SwingConstants.CENTER);
 				lblName1.setText(dto.getMenuname());
 				lblPrice1.setText(Integer.toString(dto.getMenuprice()));
@@ -640,7 +641,7 @@ public class MenuTouch extends JDialog {
 				
 				String filePath = Integer.toString(DBConnect.filename);
 				
-				lblMenu2.setIcon(new ImageIcon(filePath));
+				lblMenu2.setIcon(style.imageSize89(filePath));
 				lblMenu2.setHorizontalAlignment(SwingConstants.CENTER);
 				lblName2.setText(dto.getMenuname());
 				lblPrice2.setText(Integer.toString(dto.getMenuprice()));
@@ -653,7 +654,7 @@ public class MenuTouch extends JDialog {
 				
 				String filePath = Integer.toString(DBConnect.filename);
 				
-				lblMenu3.setIcon(new ImageIcon(filePath));
+				lblMenu3.setIcon(style.imageSize89(filePath));
 				lblMenu3.setHorizontalAlignment(SwingConstants.CENTER);
 				lblName3.setText(dto.getMenuname());
 				lblPrice3.setText(Integer.toString(dto.getMenuprice()));
@@ -666,7 +667,7 @@ public class MenuTouch extends JDialog {
 				
 				String filePath = Integer.toString(DBConnect.filename);
 				
-				lblMenu4.setIcon(new ImageIcon(filePath));
+				lblMenu4.setIcon(style.imageSize89(filePath));
 				lblMenu4.setHorizontalAlignment(SwingConstants.CENTER);
 				lblName4.setText(dto.getMenuname());
 				lblPrice4.setText(Integer.toString(dto.getMenuprice()));
@@ -679,7 +680,7 @@ public class MenuTouch extends JDialog {
 				
 				String filePath = Integer.toString(DBConnect.filename);
 				
-				lblMenu5.setIcon(new ImageIcon(filePath));
+				lblMenu5.setIcon(style.imageSize89(filePath));
 				lblMenu5.setHorizontalAlignment(SwingConstants.CENTER);
 				lblName5.setText(dto.getMenuname());
 				lblPrice5.setText(Integer.toString(dto.getMenuprice()));
@@ -692,7 +693,7 @@ public class MenuTouch extends JDialog {
 				
 				String filePath = Integer.toString(DBConnect.filename);
 				
-				lblMenu6.setIcon(new ImageIcon(filePath));
+				lblMenu6.setIcon(style.imageSize89(filePath));
 				lblMenu6.setHorizontalAlignment(SwingConstants.CENTER);
 				lblName6.setText(dto.getMenuname());
 				lblPrice6.setText(Integer.toString(dto.getMenuprice()));
@@ -705,7 +706,7 @@ public class MenuTouch extends JDialog {
 				
 				String filePath = Integer.toString(DBConnect.filename);
 				
-				lblMenu7.setIcon(new ImageIcon(filePath));
+				lblMenu7.setIcon(style.imageSize89(filePath));
 				lblMenu7.setHorizontalAlignment(SwingConstants.CENTER);
 				lblName7.setText(dto.getMenuname());
 				lblPrice7.setText(Integer.toString(dto.getMenuprice()));
@@ -718,7 +719,7 @@ public class MenuTouch extends JDialog {
 				
 				String filePath = Integer.toString(DBConnect.filename);
 				
-				lblMenu8.setIcon(new ImageIcon(filePath));
+				lblMenu8.setIcon(style.imageSize89(filePath));
 				lblMenu8.setHorizontalAlignment(SwingConstants.CENTER);
 				lblName8.setText(dto.getMenuname());
 				lblPrice8.setText(Integer.toString(dto.getMenuprice()));

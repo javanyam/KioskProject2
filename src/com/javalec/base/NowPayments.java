@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.javalec.dao.DaoMenu;
 import com.javalec.dto.DtoMenu;
+import com.javalec.style.Style;
 import com.javalec.util.DBConnect;
 
 import javax.swing.JLabel;
@@ -206,6 +207,7 @@ public class NowPayments extends JDialog {
 	}
 	
 	// M
+	Style style = new Style();
 	
 	private void selectInfo() {
 		DaoMenu dao = new DaoMenu();
@@ -216,7 +218,7 @@ public class NowPayments extends JDialog {
 		lblName.setText(dto.getMenuname());
 		lblPrice.setText(Integer.toString(dto.getMenuprice()));
 		
-		lblImage.setIcon(new ImageIcon(filePath));
+		lblImage.setIcon(style.imageSize179(filePath));
 		lblImage.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		lblTotalPrice.setText("총 " + dto.getMenuprice() + "원");
