@@ -16,5 +16,16 @@ public class Daoorders {
 	public Daoorders() {
 		// TODO Auto-generated constructor stub
 	}
+
+	public Daoorders(String customer_telno) {
+		super();
+		this.customer_telno = customer_telno;
+	}
+	
+	// M
+	
+	public void insertOrder() {
+		
+	}
 	
 }

@@ -7,7 +7,11 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.javalec.dao.Daoorders;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -48,11 +52,16 @@ public class PointPage extends JDialog {
 			lblSavePoint.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					PaymentsCard card = new PaymentsCard();
-					card.setVisible(true);
-					setVisible(false);
-					
-				
+					if(tfTelno.getText().trim().equals("")) {
+						JOptionPane.showMessageDialog(null, "전화번호를 입력해주세요!");
+						tfTelno.requestFocus();
+					}else {
+						String tel = tfTelno.getText().trim();
+						Daoorders daoorders = new Daoorders(tel);
+						PaymentsCard card = new PaymentsCard();
+						card.setVisible(true);
+						setVisible(false);
+					}
 				}
 			});
 			lblSavePoint.setIcon(new ImageIcon(PointPage.class.getResource("/image/btnSaveYes.png")));
@@ -64,6 +73,7 @@ public class PointPage extends JDialog {
 			lblDont.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
+					Daoorders daoorders = new Daoorders("0");
 					PaymentsCard card = new PaymentsCard();
 					card.setVisible(true);
 					setVisible(false);

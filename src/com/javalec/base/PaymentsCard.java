@@ -7,6 +7,9 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.javalec.dao.Daoorders;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
@@ -14,19 +17,21 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.Time;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class PaymentsCard extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JLabel lblNewLabel;
+	private JLabel lblBack;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2_3;
 	private JLabel lblNewLabel_2;
 	private JLabel lblTest;
 
 	int count = 0;
+	int count1 = 0;
 	
 	/**
 	 * Launch the application.
@@ -51,7 +56,7 @@ public class PaymentsCard extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
-		contentPanel.add(getLblNewLabel());
+		contentPanel.add(getLblBack());
 		contentPanel.add(getLblNewLabel_2_3());
 		contentPanel.add(getLblTest());
 		contentPanel.add(getLblNewLabel_2());
@@ -68,32 +73,53 @@ public class PaymentsCard extends JDialog {
 						// TODO Auto-generated method stub
 						
 						count++;
-						if(count == 5) {
+						
+						if(count == 6 && count1 == 0) {
 							setVisible(false);
+						
 							JOptionPane.showMessageDialog(null, "결제가 완료되었습니다. 감사합니다.");
+							
+							Daoorders dao = new Daoorders();
+							dao.insertOrder();
+							
 							KioskMain kiosk = new KioskMain();
 							kiosk.setVisible(true);
+							
+							
 						}
-						
 					}
 				};
 				timer.schedule(task, 0, 1000);
 			}
 		});
 	}
-	private JLabel getLblNewLabel() {
-		if (lblNewLabel == null) {
-			lblNewLabel = new JLabel("");
-			lblNewLabel.addMouseListener(new MouseAdapter() {
+	private JLabel getLblBack() {
+		if (lblBack == null) {
+			lblBack = new JLabel("");
+			lblBack.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
+					Timer timer = new Timer();
+					TimerTask task = new TimerTask() {
+						
+						@Override
+						public void run() {
+							// TODO Auto-generated method stub
+							
+							count1++;
+						}
+					};
+					timer.schedule(task, 0, 1000);
+					
 					setVisible(false);
+					KioskMain kioskMain = new KioskMain();
+					kioskMain.setVisible(true);
 				}
 			});
-			lblNewLabel.setIcon(new ImageIcon(PaymentsCard.class.getResource("/image/btnPaymenrsBack.png")));
-			lblNewLabel.setBounds(12, 445, 360, 56);
+			lblBack.setIcon(new ImageIcon(PaymentsCard.class.getResource("/image/btnPaymenrsBack.png")));
+			lblBack.setBounds(12, 445, 360, 56);
 		}
-		return lblNewLabel;
+		return lblBack;
 	}
 	private JLabel getLblNewLabel_1() {
 		if (lblNewLabel_1 == null) {
