@@ -62,7 +62,7 @@ public class MenuTouch extends JDialog {
 	private JLabel lblPrice6;
 	private JLabel lblPrice7;
 	private JLabel lblPrice8;
-	JLabel lblOrderbtn;
+	static JLabel lblOrderbtn;
 	private JPanel panel1;
 	private JLabel lblBeverage;
 	private JLabel lblDecaffeinated;

@@ -243,23 +243,26 @@ public class NowPayments extends JDialog {
 		
 		
 		if(MenuTouch.lblCartName0.getText().length()==0) {
-			MenuTouch.lblCart0.setIcon(new ImageIcon(filePath));
+			MenuTouch.lblCart0.setIcon(style.imageSize89(filePath));
 			MenuTouch.lblCartName0.setText(dto.getMenuname());
 			MenuTouch.lblCartPrice0.setText(Integer.toString(dto.getMenuprice())+"원");
 			MenuTouch.a.add(dto.getMenuname());
+			MenuTouch.lblOrderbtn.setBackground(new Color(228, 132, 69));
 			
 			
 		}else if(MenuTouch.lblCartName1.getText().length()==0){
-			MenuTouch.lblCart1.setIcon(new ImageIcon(filePath));
+			MenuTouch.lblCart1.setIcon(style.imageSize89(filePath));
 			MenuTouch.lblCartName1.setText(dto.getMenuname());
 			MenuTouch.lblCartPrice1.setText(Integer.toString(dto.getMenuprice())+"원");
 			MenuTouch.a.add(dto.getMenuname());
+			MenuTouch.lblOrderbtn.setBackground(new Color(228, 132, 69));
 			
 		}else if(MenuTouch.lblCartName2.getText().equals("")) {
-			MenuTouch.lblCart2.setIcon(new ImageIcon(filePath));
+			MenuTouch.lblCart2.setIcon(style.imageSize89(filePath));
 			MenuTouch.lblCartName2.setText(dto.getMenuname());
 			MenuTouch.lblCartPrice2.setText(Integer.toString(dto.getMenuprice())+"원");
 			MenuTouch.a.add(dto.getMenuname());
+			MenuTouch.lblOrderbtn.setBackground(new Color(228, 132, 69));
 			
 		}else if(!MenuTouch.lblCartName2.getText().equals("")) {
 			
